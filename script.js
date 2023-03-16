@@ -10,3 +10,18 @@ const list = document.querySelector(".list");
 const formButton = document.querySelector(".form__submit");
 const formInput = document.querySelector(".form__input");
 
+items.forEach(renderItem)
+
+function renderItem (item) {
+	const htmlElement = itemTemplate.cloneNode(true);
+	htmlElement.querySelector('.item__text').textContent = item;
+	list.append(htmlElement);
+
+}
+
+const handleSubmit = () => {
+	const value = formInput.value;
+	renderItem(value);
+}
+
+formButton.addEventListener('click', handleSubmit);
